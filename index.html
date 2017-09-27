@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<meta charset="utf-8">
+	<title>Simple REST API Explorer</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/layout.css">
+	
+	<link rel="stylesheet" href="css/explorer.css">
+	<link rel="stylesheet" href="css/KelpJSONView.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+	
+</head>
+<body>
+
+	<div class="container">
+		<div class="sixteen columns">
+			<h1 class="remove-bottom" style="margin-top: 40px">BigchainDB Explorer <img src="img/spinner.gif" id="loading" alt="" title="" width="16" height="16" style="display: none;" /></h1>
+			<h5>Explore assets, accounts and transactions on IPDB</h5>
+			<hr />
+		</div>
+		<div class="four columns" id="sidebar">
+			<dl>
+				<dt style="margin-top: 0"><h4>Assets</h4></dt>
+				<dd><a href="/assets?search=f" data-requestmethod="get">search</a></dd>
+				<dt><h4>Transactions</h4></dt>
+				<dd><a href="/transactions/1eeafa90b7bd5b8de8dc3eb9b391a5d52d8ccb7826cf1f0b54bfd3c4327abc28" data-requestmethod="get">Get by ID</a></dd>
+				<dd><a href="/transactions?asset_id=1eeafa90b7bd5b8de8dc3eb9b391a5d52d8ccb7826cf1f0b54bfd3c4327abc28" data-requestmethod="get">Get by asset ID</a></dd>
+				<dt><h4>Outputs</h4></dt>
+				<dd><a href="/outputs?public_key=2mZxogLS37gq7n1vrCtUSaH9krNa4WiqVDvASQgHkmZh" data-requestmethod="get">Get by public key</a></dd>
+				<dt><h4>Statuses</h4></dt>
+				<dd><a href="/statuses?transaction_id=e46d64ab1737f6ad701d8c76f911af9ec158551bb92359e87c3d02bb75896fc7" data-requestmethod="get">Get by transaction ID</a></dd>
+			</dl>
+		</div>
+		<div class="eleven columns">
+			<form action="#" method="post" class="row">
+				<label class="two columns alpha">
+					<select name="requestmethod" id="requestmethod">
+						<option value="GET">GET</option>
+						<!--
+						<option value="POST">POST</option>
+						<option value="PUT">PUT</option>
+						<option value="DELETE">DELETE</option> -->
+					</select>
+				</label>
+				<label class="nine columns omega">
+					<input type="text" id="apiurl" />
+				</label>
+			</form>	
+			<div id="result"></div>
+		</div>
+		<div class="twelve columns offset-by-four">
+			<p><em>Currently using IPDB Test: https://test.ipdb.io/api/v1/</em></p>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/KelpJSONView.js"></script>
+	<script>
+	
+		// Config
+		var apiBaseUrl = 'https://test.ipdb.io/api/v1';
+		var apiDataType = 'json';
+		//var apiExtraHeaders = { 'X-Api-Key' : 'WV4tP4zT-qJNdN8Fb-XrQCLmJs-5gwvVr9e-Ge5bNar6' };
+		var apiUrlSuffix = '';
+		
+		// No CORS support: fall back to JSONP (the API allows the omission of the X-API-Key when JSONP is used)
+		if (!('withCredentials' in new XMLHttpRequest)) {
+			apiDataType = 'jsonp';
+			$('.eleven').prepend('<p class="warning">It looks like your browser does not support CORS.<br />The demo has switched back JSONP, which does not require an <code>X-API-Key</code>.</p>');
+		}
+		
+	</script>
+	<script src="js/main.js"></script>
+</body>
+</html>
