@@ -1,0 +1,182 @@
+{
+	"variables": [],
+	"info": {
+		"name": "BigchainDB",
+		"_postman_id": "692e20c0-030b-a506-7c95-463a38279f8d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Asset search",
+			"request": {
+				"url": {
+					"raw": "https://test.ipdb.io/api/v1/assets?search=b&limit=3",
+					"protocol": "https",
+					"host": [
+						"test",
+						"ipdb",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"assets"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "b",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "limit",
+							"value": "3",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Root URL",
+			"request": {
+				"url": "https://test.ipdb.io/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "API Root",
+			"request": {
+				"url": "https://test.ipdb.io/api/v1/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transaction By ID",
+			"request": {
+				"url": "https://test.ipdb.io/api/v1/transactions/1eeafa90b7bd5b8de8dc3eb9b391a5d52d8ccb7826cf1f0b54bfd3c4327abc28",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Transactions By Asset ID",
+			"request": {
+				"url": {
+					"raw": "https://test.ipdb.io/api/v1/transactions?asset_id=e46d64ab1737f6ad701d8c76f911af9ec158551bb92359e87c3d02bb75896fc7",
+					"protocol": "https",
+					"host": [
+						"test",
+						"ipdb",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "asset_id",
+							"value": "e46d64ab1737f6ad701d8c76f911af9ec158551bb92359e87c3d02bb75896fc7",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Use operation=CREATE|TRANSFER to get CREATE-txn only or TRANSFER-txn only"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Outputs by Public Key",
+			"request": {
+				"url": {
+					"raw": "https://test.ipdb.io/api/v1/outputs?public_key=2mZxogLS37gq7n1vrCtUSaH9krNa4WiqVDvASQgHkmZh",
+					"protocol": "https",
+					"host": [
+						"test",
+						"ipdb",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"outputs"
+					],
+					"query": [
+						{
+							"key": "public_key",
+							"value": "2mZxogLS37gq7n1vrCtUSaH9krNa4WiqVDvASQgHkmZh",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Use spent=true or spent=false to get spent or unspent outputs only"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Status by Transactions ID",
+			"request": {
+				"url": {
+					"raw": "https://test.ipdb.io/api/v1/statuses?transaction_id=e46d64ab1737f6ad701d8c76f911af9ec158551bb92359e87c3d02bb75896fc7",
+					"protocol": "https",
+					"host": [
+						"test",
+						"ipdb",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"statuses"
+					],
+					"query": [
+						{
+							"key": "transaction_id",
+							"value": "e46d64ab1737f6ad701d8c76f911af9ec158551bb92359e87c3d02bb75896fc7",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
